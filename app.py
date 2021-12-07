@@ -35,7 +35,7 @@ ctx = webrtc_streamer(
     video_processor_factory=AgeGenderPredVideoProcessor,
     mode=WebRtcMode.SENDRECV,
     media_stream_constraints={"video": True, "audio": False},
-    RTCConfiguration=RTC_CONFIGURATION
+    rtc_configuration=RTC_CONFIGURATION
     )
 
 if ctx.video_processor:
