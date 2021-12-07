@@ -3,12 +3,16 @@ and looping back the vid stream, possibly with some processing applied.
 '''
 
 import streamlit as st
-from streamlit_webrtc import webrtc_streamer, WebRtcMode
+from streamlit_webrtc import webrtc_streamer, WebRtcMode, RTCConfiguration
 from age_gender_estimator import AgeGenderPredVideoProcessor
 from config import Config
 #from video_transformers import EdgesVideoTransformer
 
 conf = Config()
+
+RTC_CONFIGURATION = RTCConfiguration(
+    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+)
 
 #webrtc_streamer(
 #    key="edge_detection_vid_streamer",
@@ -24,11 +28,14 @@ st.write("""
     #### Open your camera
     """)
 
+
+
 ctx = webrtc_streamer(
     key="age-gender-prediction", 
     video_processor_factory=AgeGenderPredVideoProcessor,
     mode=WebRtcMode.SENDRECV,
-    media_stream_constraints={"video": True, "audio": False}
+    media_stream_constraints={"video": True, "audio": False},
+    RTCConfiguration=RTC_CONFIGURATION
     )
 
 if ctx.video_processor:
