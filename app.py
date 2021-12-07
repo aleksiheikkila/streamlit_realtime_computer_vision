@@ -33,10 +33,10 @@ ctx = webrtc_streamer(
 
 if ctx.video_processor:
     ctx.video_processor.conf_threshold_face = st.slider(
-        "Face detection confide threshold", 0., 1.0, conf.conf_threshold_face
+        "Face detection confidence threshold", 0., 1.0, conf.conf_threshold_face
         ) 
     ctx.video_processor.conf_threshold_age = st.slider(
-        "Age prediction confnceidence threshold", 0., 1.0, conf.conf_threshold_age
+        "Age prediction confidence threshold", 0., 1.0, conf.conf_threshold_age
         )
     ctx.video_processor.conf_threshold_gender = st.slider(
         "Gender prediction confidence threshold", 0., 1.0, conf.conf_threshold_gender
