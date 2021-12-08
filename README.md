@@ -16,4 +16,4 @@ The models are not state of the art. The idea for this repo was just to monkey a
 Run locally with: 
 > streamlit run app.py
 
-The website/app is also accessible for the time being in [Heroku](https://age-and-gender.herokuapp.com/).
+The website/app is also accessible for the time being in [Heroku](https://age-and-gender.herokuapp.com/). It is just very slow, but gives the idea.
